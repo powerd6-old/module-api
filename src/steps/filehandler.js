@@ -29,8 +29,7 @@ function loadDataFile (directory, filename, extensions = ['json', 'yaml']) {
 
       case 'yml':
       case 'yaml':
-        const yamlFileContents = fs.readFileSync(existingFile, readFileOptions)
-        result = YAML.parse(yamlFileContents)
+        result = YAML.parse(fs.readFileSync(existingFile, readFileOptions))
         break
 
       default:

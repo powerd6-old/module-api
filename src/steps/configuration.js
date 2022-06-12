@@ -1,4 +1,3 @@
-const fs = require('fs')
 const log = require('loglevel')
 const { loadDataFile } = require('./filehandler')
 
@@ -15,6 +14,8 @@ const defaultConfiguration = {
 
 function loadConfiguration () {
   log.info('Loading configuration...')
+
+  let result
 
   const data = loadDataFile(process.cwd(), '.powerd6')
 
