@@ -8,7 +8,7 @@
     "module-api": "bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
     "prepare": "husky install"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "yaml": "^2.1.1"
   },
   "devDependencies": {
+    "ava": "^4.3.0",
     "husky": "^8.0.0"
   }
 }
