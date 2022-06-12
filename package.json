@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "ava",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "standard --fix"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "ava": "^4.3.0",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "standard": "^17.0.0"
   }
 }

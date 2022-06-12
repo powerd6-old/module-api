@@ -1,40 +1,40 @@
-const fs = require("fs");
-const log = require("loglevel");
-const { loadDataFile } = require("./filehandler");
+const fs = require('fs')
+const log = require('loglevel')
+const { loadDataFile } = require('./filehandler')
 
-function getModuleBase(baseDirectory) {
-  log.info("Loading base module...");
+function getModuleBase (baseDirectory) {
+  log.info('Loading base module...')
 
   const moduleData = loadDataFile(
     `${process.cwd()}/${baseDirectory}`,
-    "module"
-  );
+    'module'
+  )
 
-  return moduleData;
+  return moduleData
 }
 
-function loadAuthors(baseDirectory, authorsDirectory) {
-  log.info("Loading module authors...");
+function loadAuthors (baseDirectory, authorsDirectory) {
+  log.info('Loading module authors...')
 
   const authors = fs
     .readdirSync(`${process.cwd()}/${baseDirectory}/${authorsDirectory}`)
-    .map((filename) => filename.split(".").slice(0, -1).join("."))
+    .map((filename) => filename.split('.').slice(0, -1).join('.'))
     .map((filename) =>
       loadDataFile(
         `${process.cwd()}/${baseDirectory}/${authorsDirectory}`,
         filename
       )
-    );
+    )
 
-  return authors;
+  return authors
 }
 
-function loadModuleContents(models, baseDirectory, contentDirectories) {
-  log.info("Loading content...");
+function loadModuleContents (models, baseDirectory, contentDirectories) {
+  log.info('Loading content...')
 
-  let result = {};
+  const result = {}
 
-  const contentTypes = Object.keys(models);
+  const contentTypes = Object.keys(models)
 
   contentTypes
     .filter((type) =>
@@ -43,34 +43,34 @@ function loadModuleContents(models, baseDirectory, contentDirectories) {
       )
     )
     .forEach((type) => {
-      log.info(`Loading "${type}"`);
+      log.info(`Loading "${type}"`)
       const data = fs
         .readdirSync(
           `${process.cwd()}/${baseDirectory}/${contentDirectories[type]}`
         )
-        .map((filename) => filename.split(".").slice(0, -1).join("."))
+        .map((filename) => filename.split('.').slice(0, -1).join('.'))
         .map((filename) =>
           loadDataFile(
             `${process.cwd()}/${baseDirectory}/${contentDirectories[type]}`,
             filename
           )
-        );
-      result[type] = data;
-    });
+        )
+      result[type] = data
+    })
 
-  return result;
+  return result
 }
 
-function loadModule(source) {
-  log.info("Building module...");
+function loadModule (source) {
+  log.info('Building module...')
 
-  const module = getModuleBase(source.directory);
-  log.debug(module);
+  const module = getModuleBase(source.directory)
+  log.debug(module)
 
   module.authors = [
     ...module.authors,
-    ...loadAuthors(source.directory, source.authors_directory),
-  ];
+    ...loadAuthors(source.directory, source.authors_directory)
+  ]
 
   module.content = {
     ...module.content,
@@ -78,12 +78,12 @@ function loadModule(source) {
       module.models,
       source.directory,
       source.content_directories
-    ),
-  };
+    )
+  }
 
-  return module;
+  return module
 }
 
 module.exports = {
-  loadModule,
-};
+  loadModule
+}
