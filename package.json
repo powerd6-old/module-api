@@ -1,0 +1,27 @@
+{
+  "name": "@powerd6/module-api",
+  "version": "1.0.0",
+  "description": "An utility tool that compiles a module from a folder structure.",
+  "main": "src/index.js",
+  "bin": {
+    "@powerd6/module-api": "bin/cli.js",
+    "module-api": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/powerd6/module-api.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/powerd6/module-api/issues"
+  },
+  "homepage": "https://github.com/powerd6/module-api#readme",
+  "dependencies": {
+    "loglevel": "^1.8.0",
+    "yaml": "^2.1.1"
+  }
+}
