@@ -8,7 +8,8 @@
     "module-api": "bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "dependencies": {
     "loglevel": "^1.8.0",
     "yaml": "^2.1.1"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
   }
 }
