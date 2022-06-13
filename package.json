@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "ava",
+    "test:watch": "ava --watch",
     "prepare": "husky install",
     "format": "standard --fix"
   },
@@ -16,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/powerd6/module-api.git"
   },
-  "author": "",
+  "author": {
+    "name": "Hector Castelli Zacharias",
+    "email": "hector.zacharias@gmail.com",
+    "url": "https://gohector.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/powerd6/module-api/issues"
