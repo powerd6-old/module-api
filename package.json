@@ -8,13 +8,20 @@
     "module-api": "bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "test:watch": "ava --watch",
+    "prepare": "husky install",
+    "format": "standard --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/powerd6/module-api.git"
   },
-  "author": "",
+  "author": {
+    "name": "Hector Castelli Zacharias",
+    "email": "hector.zacharias@gmail.com",
+    "url": "https://gohector.com/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/powerd6/module-api/issues"
@@ -23,5 +30,10 @@
   "dependencies": {
     "loglevel": "^1.8.0",
     "yaml": "^2.1.1"
+  },
+  "devDependencies": {
+    "ava": "^4.3.0",
+    "husky": "^8.0.0",
+    "standard": "^17.0.0"
   }
 }
